@@ -1,3 +1,30 @@
 body {
   font-family: sans-serif;
 }
+
+.input-area {
+  background-color: rgb(243, 245, 124);
+  width: 400px;
+  height: 30px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.uncompleted-area {
+  background-color: rgb(230, 139, 139);
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
+
+.completed-area {
+  background-color: rgb(150, 238, 197);
+  width: 400px;
+  min-height: 200px;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 8px;
+}
