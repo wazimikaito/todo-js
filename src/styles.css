@@ -2,6 +2,26 @@ body {
   font-family: sans-serif;
 }
 
+input {
+  border-radius: 8px;
+  border: none;
+  padding: 10px, 16px;
+  outline: none;
+  text-align: center;
+}
+
+button {
+  border-radius: 8px;
+  border: none;
+  margin-right: 8px;
+}
+
+button:hover {
+  background: rgb(112, 112, 202);
+  color: white;
+  cursor: pointer;
+}
+
 .input-area {
   background-color: rgb(243, 245, 124);
   width: 400px;
@@ -27,4 +47,20 @@ body {
   padding: 8px;
   margin: 8px;
   border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
+  color: rgb(63, 63, 63);
+}
+
+.list-row {
+  display: flex;
+  align-items: center;
+}
+
+.job-name {
+  margin-right: 8px;
 }
