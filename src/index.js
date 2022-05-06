@@ -24,31 +24,44 @@ const onClickAdd = () => {
   const completeButton = document.createElement("button");
   completeButton.innerText = "complete";
   completeButton.addEventListener("click", () => {
-    alert("complete");
+    deleteFromUncomplete(deleteButton.parentElement.parentElement);
+    // add completed-list
+    const addTarget = completeButton.parentElement;
+    console.log(addTarget);
+    // get todo text
+    const text = addTarget.firstElementChild.innerText;
+
+    // divを初期化
+    addTarget.textContent = null;
+    console.log(addTarget);
+    const li = document.createElement("li");
+    li.innerText = text;
   });
 
-  console.log(completeButton);
+  // console.log(completeButton);
 
   // add delete button
 
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "delete";
+  // after pushing, remove tag
   deleteButton.addEventListener("click", () => {
-    // after pushing, remove tag
-    const deleteTarget = deleteButton.parentElement.parentElement;
-
-    document.getElementById("uncompleted-list").removeChild(deleteTarget);
+    deleteFromUncomplete(deleteButton.parentElement.parentElement);
   });
 
-  console.log(deleteButton);
+  // console.log(deleteButton);
   div.appendChild(completeButton);
   div.appendChild(deleteButton);
 
   // add node under <ul>
   document.getElementById("uncompleted-list").appendChild(li);
-  console.log(document.getElementById("uncompleted-list"));
+  // console.log(document.getElementById("uncompleted-list"));
 };
 
 document
   .getElementById("add-button")
   .addEventListener("click", () => onClickAdd());
+// remove element
+const deleteFromUncomplete = (target) => {
+  document.getElementById("uncompleted-list").removeChild(target);
+};
