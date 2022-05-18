@@ -27,15 +27,22 @@ const onClickAdd = () => {
     deleteFromUncomplete(deleteButton.parentElement.parentElement);
     // add completed-list
     const addTarget = completeButton.parentElement;
-    console.log(addTarget);
+
     // get todo text
     const text = addTarget.firstElementChild.innerText;
+    console.log(addTarget);
+    console.log(text);
 
     // divを初期化
     addTarget.textContent = null;
-    console.log(addTarget);
     const li = document.createElement("li");
-    li.innerText = text;
+    const p = document.createElement("p");
+    p.innerText = text;
+    li.appendChild(p);
+    addTarget.appendChild(li);
+    console.log(addTarget);
+    addTarget.className = "list-row";
+    document.getElementById("completed-list").appendChild(addTarget);
   });
 
   // console.log(completeButton);
