@@ -46,6 +46,8 @@ const onClickAdd = () => {
 
     returnButton.addEventListener("click", () => {
       deleteFromCompleted(returnButton.parentElement.parentElement);
+      const text = addTarget.firstChild.firstChild.innerText;
+      console.log(text);
     });
     div.appendChild(returnButton);
     div.className = "list-row";
