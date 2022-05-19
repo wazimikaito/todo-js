@@ -30,17 +30,21 @@ const onClickAdd = () => {
 
     // get todo text
     const text = addTarget.firstElementChild.innerText;
-    console.log(addTarget);
-    console.log(text);
 
     // divを初期化
     addTarget.textContent = null;
     const li = document.createElement("li");
     const p = document.createElement("p");
     p.innerText = text;
+    p.className = "job-name";
     li.appendChild(p);
     addTarget.appendChild(li);
+    const button = document.createElement("button");
+    button.innerText = "return";
+    console.log(button);
     console.log(addTarget);
+    addTarget.appendChild(button);
+
     addTarget.className = "list-row";
     document.getElementById("completed-list").appendChild(addTarget);
   });
