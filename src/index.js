@@ -18,6 +18,7 @@ const onClickAdd = () => {
   // liタグの子要素に各要素を設定
   li.appendChild(div);
   div.appendChild(p);
+  // console.log(li.firstChild);
 
   // add complete button
 
@@ -26,32 +27,36 @@ const onClickAdd = () => {
   completeButton.addEventListener("click", () => {
     deleteFromUncomplete(deleteButton.parentElement.parentElement);
     // add completed-list
-    const addTarget = completeButton.parentElement;
+    const addTarget = completeButton.parentElement.parentElement;
 
     // get todo text
-    const text = addTarget.firstElementChild.innerText;
+    const text = addTarget.firstChild.firstChild.innerText;
 
     // divを初期化
     addTarget.textContent = null;
-    const li = document.createElement("li");
+    console.log(text);
+    const div = document.createElement("div");
     const p = document.createElement("p");
     p.innerText = text;
     p.className = "job-name";
-    li.appendChild(p);
-    addTarget.appendChild(li);
-    const button = document.createElement("button");
-    button.innerText = "return";
-    console.log(button);
-    console.log(addTarget);
-    addTarget.appendChild(button);
+    addTarget.appendChild(div);
+    div.appendChild(p);
+    const returnButton = document.createElement("button");
+    returnButton.innerText = "return";
 
-    addTarget.className = "list-row";
+    returnButton.addEventListener("click", () => {
+      deleteFromCompleted(returnButton.parentElement.parentElement);
+    });
+    div.appendChild(returnButton);
+    div.className = "list-row";
+    console.log(addTarget);
+
     document.getElementById("completed-list").appendChild(addTarget);
   });
 
   // console.log(completeButton);
 
-  // add delete button
+  // add delete returnButton
 
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "delete";
@@ -75,4 +80,8 @@ document
 // remove element
 const deleteFromUncomplete = (target) => {
   document.getElementById("uncompleted-list").removeChild(target);
+};
+
+const deleteFromCompleted = (target) => {
+  document.getElementById("completed-list").removeChild(target);
 };
