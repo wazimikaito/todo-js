@@ -47,11 +47,26 @@ const onClickAdd = () => {
     returnButton.addEventListener("click", () => {
       deleteFromCompleted(returnButton.parentElement.parentElement);
       const text = addTarget.firstChild.firstChild.innerText;
-      console.log(text);
+      addTarget.textContent = null;
+
+      const div = document.createElement("div");
+      div.className = "list-row";
+      // liタグを生成
+      const li = document.createElement("li");
+      // pタグ生成
+      const p = document.createElement("p");
+      p.innerText = text;
+
+      p.className = "job-name";
+      li.appendChild(div);
+      div.appendChild(p);
+      div.appendChild(completeButton);
+      div.appendChild(deleteButton);
+      document.getElementById("uncompleted-list").appendChild(li);
+      console.log(li);
     });
     div.appendChild(returnButton);
     div.className = "list-row";
-    console.log(addTarget);
 
     document.getElementById("completed-list").appendChild(addTarget);
   });
